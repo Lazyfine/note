@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>登录 - Lazyfine</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #667eea;
+            --secondary: #764ba2;
+            --accent: #f093fb;
+            --light: #f8f9fa;
+            --dark: #2d3748;
+            --success: #48bb78;
+            --warning: #ed8936;
+            --danger: #f56565;
+            --card-bg: #ffffff;
+            --shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            --border-radius: 16px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', 'Inter', system-ui, -apple-system, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 40px 20px;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .auth-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            max-width: 1100px;
+            width: 100%;
+            background: white;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            animation: fadeIn 0.8s ease-out;
+        }
+
+        .auth-card {
+            padding: 60px 50px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .auth-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .auth-header .logo {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 20px;
+            transition: transform 0.3s;
+        }
+
+        .auth-header .logo:hover {
+            transform: translateY(-2px);
+        }
+
+        .auth-header .logo i {
+            margin-right: 12px;
+            font-size: 2.5rem;
+        }
+
+        .auth-header h1 {
+            font-size: 2.4rem;
+            margin-bottom: 12px;
+            color: var(--dark);
+            font-weight: 700;
+        }
+
+        .auth-header p {
+            color: #666;
+            font-size: 1.1rem;
+            opacity: 0.8;
+        }
+
+        .auth-form {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+
+        .form-group {
+            position: relative;
+            margin-bottom: 8px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: var(--dark);
+            font-size: 0.95rem;
+            transition: color 0.3s;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 16px 20px 16px 50px;
+            border: 2px solid #e2e8f0;
+            border-radius: 12px;
+            font-size: 1rem;
+            transition: all 0.3s;
+            background: #fafbfc;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02);
+        }
+
+        .form-group input:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.15);
+            background: white;
+            transform: translateY(-2px);
+        }
+
+        .form-group .input-icon {
+            position: absolute;
+            left: 18px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #a0aec0;
+            font-size: 1.1rem;
+            transition: color 0.3s;
+        }
+
+        .form-group input:focus + .input-icon {
+            color: var(--primary);
+        }
+
+        .form-options {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 8px 0 16px;
+        }
+
+        .checkbox-label {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 0.9rem;
+            color: #666;
+            cursor: pointer;
+            transition: color 0.3s;
+        }
+
+        .checkbox-label:hover {
+            color: var(--dark);
+        }
+
+        .checkbox-label input[type="checkbox"] {
+            width: 18px;
+            height: 18px;
+            accent-color: var(--primary);
+        }
+
+        .forgot-link {
+            color: var(--primary);
+            font-size: 0.9rem;
+            text-decoration: none;
+            transition: all 0.3s;
+            font-weight: 500;
+        }
+
+        .forgot-link:hover {
+            color: var(--secondary);
+            text-decoration: underline;
+        }
+
+        .btn {
+            padding: 16px 24px;
+            border-radius: 12px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            border: none;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            font-size: 1rem;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
+        }
+
+        .btn-block {
+            width: 100%;
+            padding: 16px;
+            font-size: 1.1rem;
+            margin-top: 10px;
+        }
+
+        .social-login {
+            margin: 30px 0;
+            text-align: center;
+            position: relative;
+        }
+
+        .social-login p {
+            color: #666;
+            margin-bottom: 20px;
+            position: relative;
+            font-size: 0.95rem;
+        }
+
+        .social-login p:before, .social-login p:after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            width: 30%;
+            height: 1px;
+            background: #e2e8f0;
+        }
+
+        .social-login p:before {
+            left: 0;
+        }
+
+        .social-login p:after {
+            right: 0;
+        }
+
+        .social-buttons {
+            display: flex;
+            gap: 15px;
+        }
+
+        .btn-social {
+            flex: 1;
+            padding: 12px;
+            border: 2px solid #e2e8f0;
+            background: white;
+            border-radius: 10px;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+
+        .btn-social:hover {
+            transform: translateY(-2px);
+            border-color: var(--primary);
+        }
+
+        .btn-wechat {
+            color: #09bb07;
+        }
+
+        .btn-qq {
+            color: #12b7f5;
+        }
+
+        .auth-footer {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 0.95rem;
+            color: #666;
+        }
+
+        .auth-footer a {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+
+        .auth-footer a:hover {
+            color: var(--secondary);
+            text-decoration: underline;
+        }
+
+        .auth-features {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            padding: 60px 40px;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .auth-features:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><polygon fill="rgba(255,255,255,0.05)" points="0,1000 1000,0 1000,1000"/></svg>');
+        }
+
+        .feature-item {
+            text-align: center;
+            margin-bottom: 50px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .feature-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .feature-item i {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            opacity: 0.9;
+            display: inline-block;
+            transition: transform 0.3s;
+        }
+
+        .feature-item:hover i {
+            transform: translateY(-5px);
+        }
+
+        .feature-item h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .feature-item p {
+            font-size: 1rem;
+            opacity: 0.9;
+            line-height: 1.6;
+        }
+
+        @media (max-width: 768px) {
+            .auth-container {
+                grid-template-columns: 1fr;
+                max-width: 450px;
+            }
+            
+            .auth-features {
+                display: none;
+            }
+            
+            .auth-card {
+                padding: 40px 30px;
+            }
+            
+            .auth-header h1 {
+                font-size: 2rem;
+            }
+            
+            .social-buttons {
+                flex-direction: column;
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .password-toggle {
+            position: absolute;
+            right: 18px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #a0aec0;
+            cursor: pointer;
+            transition: color 0.3s;
+        }
+
+        .password-toggle:hover {
+            color: var(--primary);
+        }
+    </style>
+</head>
+<body>
+    <div class="auth-container">
+        <div class="auth-card">
+            <div class="auth-header">
+                <a href="index.html" class="logo">
+                    <i class="fas fa-book-open"></i>
+                    Lazyfine
+                </a>
+                <h1>欢迎回来</h1>
+                <p>登录您的账户继续使用Lazyfine</p>
+            </div>
+            
+            <form class="auth-form" id="loginForm">
+                <div class="form-group">
+                    <label for="email">邮箱地址</label>
+                    <input type="email" id="email" name="email" placeholder="请输入邮箱地址" required>
+                    <i class="fas fa-envelope input-icon"></i>
+                </div>
+                
+                <div class="form-group">
+                    <label for="password">密码</label>
+                    <input type="password" id="password" name="password" placeholder="请输入密码" required>
+                    <i class="fas fa-lock input-icon"></i>
+                    <span class="password-toggle" id="passwordToggle">
+                        <i class="fas fa-eye"></i>
+                    </span>
+                </div>
+                
+                <div class="form-options">
+                    <label class="checkbox-label">
+                        <input type="checkbox" id="remember" name="remember">
+                        记住我
+                    </label>
+                    <a href="forgot-password.html" class="forgot-link">忘记密码？</a>
+                </div>
+                
+                <button type="submit" class="btn btn-primary btn-block">
+                    <i class="fas fa-sign-in-alt"></i> 登录
+                </button>
+                
+                <div class="social-login">
+                    <p>或使用以下方式登录</p>
+                    <div class="social-buttons">
+                        <button type="button" class="btn btn-social btn-wechat">
+                            <i class="fab fa-weixin"></i> 微信登录
+                        </button>
+                        <button type="button" class="btn btn-social btn-qq">
+                            <i class="fab fa-qq"></i> QQ登录
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="auth-footer">
+                    <p>还没有账户？ <a href="register.html">立即注册</a></p>
+                </div>
+            </form>
+        </div>
+        
+        <div class="auth-features">
+            <div class="feature-item">
+                <i class="fas fa-graduation-cap"></i>
+                <h3>优质学习资源</h3>
+                <p>汇聚各学科优质笔记，助力学业进步</p>
+            </div>
+            <div class="feature-item">
+                <i class="fas fa-hand-holding-usd"></i>
+                <h3>知识变现</h3>
+                <p>分享笔记获得收益，知识创造价值</p>
+            </div>
+            <div class="feature-item">
+                <i class="fas fa-users"></i>
+                <h3>学习社区</h3>
+                <p>与志同道合的学习者交流互动</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            
+            // 简单的表单验证
+            if (!email || !password) {
+                showMessage('请填写邮箱和密码', 'error');
+                return;
+            }
+            
+            if (!validateEmail(email)) {
+                showMessage('请输入有效的邮箱地址', 'error');
+                return;
+            }
+            
+            // 模拟登录成功
+            showMessage('登录成功！正在跳转...', 'success');
+            setTimeout(() => {
+                window.location.href = 'index.html';
+            }, 1500);
+        });
+        
+        // 邮箱验证函数
+        function validateEmail(email) {
+            const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return re.test(email);
+        }
+        
+        // 显示消息函数
+        function showMessage(message, type) {
+            // 移除已存在的消息
+            const existingMessage = document.querySelector('.form-message');
+            if (existingMessage) {
+                existingMessage.remove();
+            }
+            
+            // 创建新消息
+            const messageDiv = document.createElement('div');
+            messageDiv.className = `form-message ${type}`;
+            messageDiv.textContent = message;
+            messageDiv.style.cssText = `
+                padding: 12px 16px;
+                border-radius: 8px;
+                margin-bottom: 20px;
+                font-weight: 500;
+                text-align: center;
+                background: ${type === 'success' ? '#e6fffa' : '#fed7d7'};
+                color: ${type === 'success' ? '#2d7a5c' : '#c53030'};
+                border: 1px solid ${type === 'success' ? '#9ae6b4' : '#fc8181'};
+                animation: fadeIn 0.3s ease-out;
+            `;
+            
+            document.querySelector('.auth-form').insertBefore(messageDiv, document.querySelector('.auth-form').firstChild);
+            
+            // 3秒后自动消失
+            setTimeout(() => {
+                if (messageDiv.parentNode) {
+                    messageDiv.style.opacity = '0';
+                    messageDiv.style.transition = 'opacity 0.3s';
+                    setTimeout(() => {
+                        if (messageDiv.parentNode) {
+                            messageDiv.remove();
+                        }
+                    }, 300);
+                }
+            }, 3000);
+        }
+        
+        // 密码显示/隐藏功能
+        document.getElementById('passwordToggle').addEventListener('click', function() {
+            const passwordInput = document.getElementById('password');
+            const icon = this.querySelector('i');
+            
+            if (passwordInput.type === 'password') {
+                passwordInput.type = 'text';
+                icon.classList.remove('fa-eye');
+                icon.classList.add('fa-eye-slash');
+            } else {
+                passwordInput.type = 'password';
+                icon.classList.remove('fa-eye-slash');
+                icon.classList.add('fa-eye');
+            }
+        });
+        
+        // 第三方登录按钮
+        document.querySelector('.btn-wechat').addEventListener('click', function() {
+            showMessage('微信登录功能开发中...', 'info');
+        });
+        
+        document.querySelector('.btn-qq').addEventListener('click', function() {
+            showMessage('QQ登录功能开发中...', 'info');
+        });
+        
+        // 输入框获取焦点时的效果
+        document.querySelectorAll('.form-group input').forEach(input => {
+            input.addEventListener('focus', function() {
+                this.parentElement.querySelector('label').style.color = 'var(--primary)';
+            });
+            
+            input.addEventListener('blur', function() {
+                if (!this.value) {
+                    this.parentElement.querySelector('label').style.color = 'var(--dark)';
+                }
+            });
+        });
+    </script>
+</body>
+</html>

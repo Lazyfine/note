@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>笔记库 - 学海笔记</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- 导航栏 -->
+    <header>
+        <div class="container">
+            <nav>
+                <a href="index.html" class="logo">
+                    <i class="fas fa-book-open"></i>
+                    Lazyfine
+                </a>
+                <ul class="nav-links">
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="notes.html" class="active">笔记库</a></li>
+                    <li><a href="categories.html">学科分类</a></li>
+                    <li><a href="contribute.html">我要投稿</a></li>
+                    <li><a href="about.html">关于我们</a></li>
+                </ul>
+                <div class="auth-buttons">
+                    <button class="btn btn-outline" onclick="location.href='login.html'">登录</button>
+                    <button class="btn btn-primary" onclick="location.href='register.html'">注册</button>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- 笔记列表 -->
+    <section class="categories">
+        <div class="container">
+            <div class="page-header">
+                <h1>笔记库</h1>
+                <p>发现优质学习资源，提升学习效率</p>
+            </div>
+            
+            <div class="filters">
+                <div class="filter-group">
+                    <label>学科分类:</label>
+                    <select id="categoryFilter">
+                        <option value="">全部</option>
+                        <option value="computer">计算机科学</option>
+                        <option value="math">数学</option>
+                        <option value="chemistry">化学</option>
+                        <option value="economics">经济学</option>
+                        <option value="literature">文学</option>
+                        <option value="law">法学</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label>排序方式:</label>
+                    <select id="sortFilter">
+                        <option value="newest">最新发布</option>
+                        <option value="popular">最受欢迎</option>
+                        <option value="rating">评分最高</option>
+                        <option value="price-low">价格从低到高</option>
+                        <option value="price-high">价格从高到低</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label>价格范围:</label>
+                    <select id="priceFilter">
+                        <option value="">全部</option>
+                        <option value="free">免费</option>
+                        <option value="paid">付费</option>
+                    </select>
+                </div>
+            </div>
+            
+            <div class="notes-grid">
+                <div class="note-card" onclick="location.href='note-detail.html?id=1'">
+                    <div class="note-image" style="background-image: url('https://source.unsplash.com/random/600x400/?programming');"></div>
+                    <div class="note-content">
+                        <h3 class="note-title">数据结构与算法精讲</h3>
+                        <div class="note-meta">
+                            <span><i class="far fa-user"></i> 张学长</span>
+                            <span><i class="far fa-calendar"></i> 2023-10-15</span>
+                        </div>
+                        <p class="note-description">涵盖常见数据结构和算法，配有详细图解和代码示例，适合复习和备考。</p>
+                        <div class="note-footer">
+                            <span class="note-price">免费</span>
+                            <span class="rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                                4.5
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="note-card" onclick="location.href='note-detail.html?id=2'">
+                    <div class="note-image" style="background-image: url('https://source.unsplash.com/random/600x400/?math');"></div>
+                    <div class="note-content">
+                        <h3 class="note-title">高等数学重点总结</h3>
+                        <div class="note-meta">
+                            <span><i class="far fa-user"></i> 李学姐</span>
+                            <span><i class="far fa-calendar"></i> 2023-11-02</span>
+                        </div>
+                        <p class="note-description">期末复习必备，包含重要公式、定理和典型例题解析。</p>
+                        <div class="note-footer">
+                            <span class="note-price">¥ 5.00</span>
+                            <span class="rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="far fa-star"></i>
+                                4.0
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="note-card" onclick="location.href='note-detail.html?id=3'">
+                    <div class="note-image" style="background-image: url('https://source.unsplash.com/random/600x400/?chemistry');"></div>
+                    <div class="note-content">
+                        <h3 class="note-title">有机化学反应机理</h3>
+                        <div class="note-meta">
+                            <span><i class="far fa-user"></i> 王学长</span>
+                            <span><i class="far fa-calendar"></i> 2023-09-28</span>
+                        </div>
+                        <p class="note-description">详细解析有机化学常见反应机理，配有清晰的反应流程图。</p>
+                        <div class="note-footer">
+                            <span class="note-price">¥ 8.00</span>
+                            <span class="rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                5.0
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="note-card" onclick="location.href='note-detail.html?id=4'">
+                    <div class="note-image" style="background-image: url('https://source.unsplash.com/random/600x400/?economics');"></div>
+                    <div class="note-content">
+                        <h3 class="note-title">宏观经济学核心概念</h3>
+                        <div class="note-meta">
+                            <span><i class="far fa-user"></i> 赵学长</span>
+                            <span><i class="far fa-calendar"></i> 2023-10-20</span>
+                        </div>
+                        <p class="note-description">系统梳理宏观经济学核心理论，配有实际案例分析和图表。</p>
+                        <div class="note-footer">
+                            <span class="note-price">¥ 6.00</span>
+                            <span class="rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                                4.5
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="note-card" onclick="location.href='note-detail.html?id=5'">
+                    <div class="note-image" style="background-image: url('https://source.unsplash.com/random/600x400/?literature');"></div>
+                    <div class="note-content">
+                        <h3 class="note-title">中国现代文学史纲要</h3>
+                        <div class="note-meta">
+                            <span><i class="far fa-user"></i> 刘学姐</span>
+                            <span><i class="far fa-calendar"></i> 2023-11-05</span>
+                        </div>
+                        <p class="note-description">梳理中国现代文学发展脉络，重点作家作品分析。</p>
+                        <div class="note-footer">
+                            <span class="note-price">免费</span>
+                            <span class="rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="far fa-star"></i>
+                                4.0
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="note-card" onclick="location.href='note-detail.html?id=6'">
+                    <div class="note-image" style="background-image: url('https://source.unsplash.com/random/600x400/?law');"></div>
+                    <div class="note-content">
+                        <h3 class="note-title">民法总则重点解析</h3>
+                        <div class="note-meta">
+                            <span><i class="far fa-user"></i> 陈学长</span>
+                            <span><i class="far fa-calendar"></i> 2023-10-08</span>
+                        </div>
+                        <p class="note-description">民法总则核心知识点梳理，结合案例分析帮助理解。</p>
+                        <div class="note-footer">
+                            <span class="note-price">¥ 7.00</span>
+                            <span class="rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                5.0
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="pagination">
+                <a href="#" class="page-link active">1</a>
+                <a href="#" class="page-link">2</a>
+                <a href="#" class="page-link">3</a>
+                <a href="#" class="page-link">下一页</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>学海笔记</h3>
+                    <p>专为大学生打造的知识分享平台，致力于促进学术交流与知识传播。</p>
+                </div>
+                <div class="footer-column">
+                    <h3>快速链接</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html">首页</a></li>
+                        <li><a href="notes.html">笔记库</a></li>
+                        <li><a href="categories.html">学科分类</a></li>
+                        <li><a href="about.html">关于我们</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>帮助中心</h3>
+                    <ul class="footer-links">
+                        <li><a href="contribute.html">如何投稿</a></li>
+                        <li><a href="help.html">购买说明</a></li>
+                        <li><a href="faq.html">常见问题</a></li>
+                        <li><a href="terms.html">用户协议</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>联系我们</h3>
+                    <ul class="footer-links">
+                        <li><a href="mailto:contact@xuehaibiji.com"><i class="fas fa-envelope"></i> lazyfine@qq.com</a></li>
+                    
+                        <li><a href="#"><i class="fas fa-map-marker-alt"></i> 北京市</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 lazyfine&nbsp; 版权所有</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // 从URL获取参数并设置筛选器
+        document.addEventListener('DOMContentLoaded', function() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const category = urlParams.get('category');
+            const search = urlParams.get('search');
+            
+            if (category) {
+                document.getElementById('categoryFilter').value = category;
+            }
+            
+            if (search) {
+                // 在实际应用中，这里会根据搜索词筛选笔记
+                document.querySelector('.page-header h1').textContent = `搜索: ${search}`;
+                document.querySelector('.page-header p').textContent = `找到 12 篇相关笔记`;
+            }
+            
+            // 筛选器变化时重新加载页面
+            document.getElementById('categoryFilter').addEventListener('change', applyFilters);
+            document.getElementById('sortFilter').addEventListener('change', applyFilters);
+            document.getElementById('priceFilter').addEventListener('change', applyFilters);
+        });
+        
+        function applyFilters() {
+            const category = document.getElementById('categoryFilter').value;
+            const sort = document.getElementById('sortFilter').value;
+            const price = document.getElementById('priceFilter').value;
+            
+            let newUrl = 'notes.html?';
+            const params = [];
+            
+            if (category) params.push(`category=${category}`);
+            if (sort !== 'newest') params.push(`sort=${sort}`);
+            if (price) params.push(`price=${price}`);
+            
+            newUrl += params.join('&');
+            window.location.href = newUrl;
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>学科分类 - 学海笔记</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- 导航栏 -->
+    <header>
+        <div class="container">
+            <nav>
+                <a href="index.html" class="logo">
+                    <i class="fas fa-book-open"></i>
+                Lazyfine
+                    
+                </a>
+                <ul class="nav-links">
+                  <li><a href="index.html">首页</a></li>
+                    <li><a href="notes.html">笔记库</a></li>
+                    <li><a href="categories.html" class="active">学科分类</a></li>
+                    <li><a href="contribute.html">我要投稿</a></li>
+                    <li><a href="about.html">关于我们</a></li>
+                </ul>
+                <div class="auth-buttons">
+                    <button class="btn btn-outline" onclick="location.href='login.html'">登录</button>
+                    <button class="btn btn-primary" onclick="location.href='register.html'">注册</button>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- 学科分类页面 -->
+    <section class="categories-page">
+        <div class="container">
+            <div class="page-header">
+                <h1>学科分类</h1>
+                <p>按学科浏览优质学习资源，快速找到你需要的内容</p>
+            </div>
+            
+            <div class="categories-grid">
+                <div class="category-large-card" onclick="location.href='notes.html?category=computer'">
+                    <div class="category-icon">
+                        <i class="fas fa-laptop-code"></i>
+                    </div>
+                    <div class="category-info">
+                        <h2>计算机科学</h2>
+                        <p>1,284篇笔记</p>
+                        <p class="category-description">涵盖编程语言、算法、数据结构、人工智能等计算机相关领域</p>
+                        <div class="sub-categories">
+                            <span class="sub-category">数据结构</span>
+                            <span class="sub-category">算法设计</span>
+                            <span class="sub-category">人工智能</span>
+                            <span class="sub-category">数据库</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="category-large-card" onclick="location.href='notes.html?category=math'">
+                    <div class="category-icon">
+                        <i class="fas fa-calculator"></i>
+                    </div>
+                    <div class="category-info">
+                        <h2>数学</h2>
+                        <p>956篇笔记</p>
+                        <p class="category-description">高等数学、线性代数、概率统计等数学学科学习资料</p>
+                        <div class="sub-categories">
+                            <span class="sub-category">高等数学</span>
+                            <span class="sub-category">线性代数</span>
+                            <span class="sub-category">概率论</span>
+                            <span class="sub-category">离散数学</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="category-large-card" onclick="location.href='notes.html?category=chemistry'">
+                    <div class="category-icon">
+                        <i class="fas fa-flask"></i>
+                    </div>
+                    <div class="category-info">
+                        <h2>化学</h2>
+                        <p>742篇笔记</p>
+                        <p class="category-description">有机化学、无机化学、物理化学等化学学科知识总结</p>
+                        <div class="sub-categories">
+                            <span class="sub-category">有机化学</span>
+                            <span class="sub-category">无机化学</span>
+                            <span class="sub-category">物理化学</span>
+                            <span class="sub-category">分析化学</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="category-large-card" onclick="location.href='notes.html?category=economics'">
+                    <div class="category-icon">
+                        <i class="fas fa-dollar-sign"></i>
+                    </div>
+                    <div class="category-info">
+                        <h2>经济学</h2>
+                        <p>689篇笔记</p>
+                        <p class="category-description">微观经济学、宏观经济学、计量经济学等经济理论</p>
+                        <div class="sub-categories">
+                            <span class="sub-category">微观经济</span>
+                            <span class="sub-category">宏观经济</span>
+                            <span class="sub-category">计量经济</span>
+                            <span class="sub-category">国际金融</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="category-large-card" onclick="location.href='notes.html?category=literature'">
+                    <div class="category-icon">
+                        <i class="fas fa-book"></i>
+                    </div>
+                    <div class="category-info">
+                        <h2>文学</h2>
+                        <p>634篇笔记</p>
+                        <p class="category-description">中国文学、外国文学、文学理论等文学研究资料</p>
+                        <div class="sub-categories">
+                            <span class="sub-category">中国文学</span>
+                            <span class="sub-category">外国文学</span>
+                            <span class="sub-category">文学理论</span>
+                            <span class="sub-category">比较文学</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="category-large-card" onclick="location.href='notes.html?category=law'">
+                    <div class="category-icon">
+                        <i class="fas fa-balance-scale"></i>
+                    </div>
+                    <div class="category-info">
+                        <h2>法学</h2>
+                        <p>587篇笔记</p>
+                        <p class="category-description">宪法、民法、刑法、国际法等法学专业知识</p>
+                        <div class="sub-categories">
+                            <span class="sub-category">宪法学</span>
+                            <span class="sub-category">民法学</span>
+                            <span class="sub-category">刑法学</span>
+                            <span class="sub-category">国际法</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 其他学科 -->
+            <div class="other-categories">
+                <h2>其他学科</h2>
+                <div class="other-categories-grid">
+                    <div class="other-category" onclick="location.href='notes.html?category=physics'">
+                        <i class="fas fa-atom"></i>
+                        <span>物理学</span>
+                    </div>
+                    <div class="other-category" onclick="location.href='notes.html?category=biology'">
+                        <i class="fas fa-dna"></i>
+                        <span>生物学</span>
+                    </div>
+                    <div class="other-category" onclick="location.href='notes.html?category=history'">
+                        <i class="fas fa-landmark"></i>
+                        <span>历史学</span>
+                    </div>
+                    <div class="other-category" onclick="location.href='notes.html?category=philosophy'">
+                        <i class="fas fa-brain"></i>
+                        <span>哲学</span>
+                    </div>
+                    <div class="other-category" onclick="location.href='notes.html?category=psychology'">
+                        <i class="fas fa-brain"></i>
+                        <span>心理学</span>
+                    </div>
+                    <div class="other-category" onclick="location.href='notes.html?category=sociology'">
+                        <i class="fas fa-users"></i>
+                        <span>社会学</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>学海笔记</h3>
+                    <p>专为大学生打造的知识分享平台，致力于促进学术交流与知识传播。</p>
+                </div>
+                <div class="footer-column">
+                    <h3>快速链接</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html">首页</a></li>
+                        <li><a href="notes.html">笔记库</a></li>
+                        <li><a href="categories.html">学科分类</a></li>
+                        <li><a href="about.html">关于我们</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>帮助中心</h3>
+                    <ul class="footer-links">
+                        <li><a href="contribute.html">如何投稿</a></li>
+                        <li><a href="help.html">购买说明</a></li>
+                        <li><a href="faq.html">常见问题</a></li>
+                        <li><a href="terms.html">用户协议</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>联系我们</h3>
+                    <ul class="footer-links">
+                        <li><a href="mailto:contact@xuehaibiji.com"><i class="fas fa-envelope"></i> lazyfine@qq.com</a></li>
+                       
+                        <li><a href="#"><i class="fas fa-map-marker-alt"></i> 北京市</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 Lazyfine&nbsp; 版权所有</p>
+            </div>
+        </div>
+    </footer>
+
+    <style>
+        .categories-page {
+            padding: 60px 0;
+        }
+        
+        .categories-grid {
+            display: grid;
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+        
+        .category-large-card {
+            display: flex;
+            background: white;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            overflow: hidden;
+            transition: transform 0.3s;
+            cursor: pointer;
+        }
+        
+        .category-large-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .category-icon {
+            flex: 0 0 200px;
+            background: linear-gradient(135deg, #4361ee 0%, #3a0ca3 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 4rem;
+        }
+        
+        .category-info {
+            flex: 1;
+            padding: 30px;
+        }
+        
+        .category-info h2 {
+            font-size: 2rem;
+            margin-bottom: 10px;
+            color: var(--primary);
+        }
+        
+        .category-info p:first-of-type {
+            color: #666;
+            margin-bottom: 15px;
+        }
+        
+        .category-description {
+            color: #555;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+        
+        .sub-categories {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        
+        .sub-category {
+            background: #f5f7fb;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            color: #666;
+        }
+        
+        .other-categories {
+            margin-top: 40px;
+        }
+        
+        .other-categories h2 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        
+        .other-categories-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 20px;
+        }
+        
+        .other-category {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+            background: white;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+        
+        .other-category:hover {
+            transform: translateY(-3px);
+        }
+        
+        .other-category i {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+        
+        @media (max-width: 768px) {
+            .category-large-card {
+                flex-direction: column;
+            }
+            
+            .category-icon {
+                flex: 0 0 150px;
+            }
+        }
+    </style>
+</body>
+</html>

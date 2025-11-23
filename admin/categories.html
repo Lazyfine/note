@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>用户管理 - 学海笔记后台</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="admin-container">
+        <!-- 侧边栏 -->
+        <div class="admin-sidebar">
+            <div class="admin-logo">
+                <h2><i class="fas fa-book-open"></i> 学海笔记</h2>
+                <p>后台管理系统</p>
+            </div>
+            <ul class="admin-menu">
+                <li><a href="index.html"><i class="fas fa-tachometer-alt"></i> 仪表盘</a></li>
+                <li><a href="notes.html"><i class="fas fa-sticky-note"></i> 笔记管理</a></li>
+                <li><a href="users.html" class="active"><i class="fas fa-users"></i> 用户管理</a></li>
+                <li><a href="categories.html"><i class="fas fa-th-large"></i> 分类管理</a></li>
+                <li><a href="orders.html"><i class="fas fa-shopping-cart"></i> 订单管理</a></li>
+                <li><a href="reports.html"><i class="fas fa-chart-bar"></i> 数据统计</a></li>
+                <li><a href="settings.html"><i class="fas fa-cog"></i> 系统设置</a></li>
+                <li><a href="../index.html"><i class="fas fa-sign-out-alt"></i> 返回前台</a></li>
+            </ul>
+        </div>
+        
+        <!-- 主要内容 -->
+        <div class="admin-content">
+            <div class="admin-header">
+                <h1>用户管理</h1>
+                <div class="header-actions">
+                    <div class="search-box">
+                        <input type="text" placeholder="搜索用户名或邮箱...">
+                        <button><i class="fas fa-search"></i></button>
+                    </div>
+                    <button class="btn btn-primary" onclick="addUser()"><i class="fas fa-plus"></i> 添加用户</button>
+                </div>
+            </div>
+            
+            <!-- 用户统计 -->
+            <div class="stats-cards">
+                <div class="stat-card">
+                    <span class="number">1,250</span>
+                    <span class="label">总用户数</span>
+                </div>
+                <div class="stat-card">
+                    <span class="number">350</span>
+                    <span class="label">今日新增</span>
+                </div>
+                <div class="stat-card">
+                    <span class="number">89</span>
+                    <span class="label">创作者</span>
+                </div>
+                <div class="stat-card">
+                    <span class="number">85%</span>
+                    <span class="label">活跃度</span>
+                </div>
+            </div>
+            
+            <!-- 用户列表 -->
+            <div class="data-table">
+                <div class="table-header">
+                    <h3>用户列表</h3>
+                    <div class="table-actions">
+                        <span>共 1,250 位用户</span>
+                        <button class="btn btn-outline btn-sm" onclick="exportUsers()">导出用户</button>
+                    </div>
+                </div>
+                <div class="table-content">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>用户ID</th>
+                                <th>用户名</th>
+                                <th>邮箱</th>
+                                <th>学校</th>
+                                <th>专业</th>
+                                <th>角色</th>
+                                <th>注册时间</th>
+                                <th>状态</th>
+                                <th>操作</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>10001</td>
+                                <td>张学长</td>
+                                <td>zhang@example.com</td>
+                                <td>清华大学</td>
+                                <td>计算机科学</td>
+                                <td><span class="role creator">创作者</span></td>
+                                <td>2023-01-15</td>
+                                <td><span class="status active">正常</span></td>
+                                <td class="action-buttons">
+                                    <button class="btn btn-success btn-sm" onclick="viewUser(10001)">查看</button>
+                                    <button class="btn btn-warning btn-sm" onclick="editUser(10001)">编辑</button>
+                                    <button class="btn btn-danger btn-sm" onclick="banUser(10001)">封禁</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>10002</td>
+                                <td>李学姐</td>
+                                <td>li@example.com</td>
+                                <td>北京大学</td>
+                                <td>数学</td>
+                                <td><span class="role creator">创作者</span></td>
+                                <td>2023-02-20</td>
+                                <td><span class="status active">正常</span></td>
+                                <td class="action-buttons">
+                                    <button class="btn btn-success btn-sm" onclick="viewUser(10002)">查看</button>
+                                    <button class="btn btn-warning btn-sm" onclick="editUser(10002)">编辑</button>
+                                    <button class="btn btn-danger btn-sm" onclick="banUser(10002)">封禁</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>10003</td>
+                                <td>王同学</td>
+                                <td>wang@example.com</td>
+                                <td>复旦大学</td>
+                                <td>经济学</td>
+                                <td><span class="role user">普通用户</span></td>
+                                <td>2023-03-10</td>
+                                <td><span class="status active">正常</span></td>
+                                <td class="action-buttons">
+                                    <button class="btn btn-success btn-sm" onclick="viewUser(10003)">查看</button>
+                                    <button class="btn btn-warning btn-sm" onclick="editUser(10003)">编辑</button>
+                                    <button class="btn btn-danger btn-sm" onclick="banUser(10003)">封禁</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>10004</td>
+                                <td>刘同学</td>
+                                <td>liu@example.com</td>
+                                <td>上海交大</td>
+                                <td>法学</td>
+                                <td><span class="role user">普通用户</span></td>
+                                <td>2023-04-05</td>
+                                <td><span class="status banned">已封禁</span></td>
+                                <td class="action-buttons">
+                                    <button class="btn btn-success btn-sm" onclick="viewUser(10004)">查看</button>
+                                    <button class="btn btn-warning btn-sm" onclick="editUser(10004)">编辑</button>
+                                    <button class="btn btn-primary btn-sm" onclick="unbanUser(10004)">解封</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            
+            <!-- 分页 -->
+            <div class="pagination">
+                <button class="btn btn-outline btn-sm">上一页</button>
+                <a href="#" class="page-link active">1</a>
+                <a href="#" class="page-link">2</a>
+                <a href="#" class="page-link">3</a>
+                <button class="btn btn-outline btn-sm">下一页</button>
+                <span class="page-info">第 1 页，共 8 页</span>
+            </div>
+        </div>
+    </div>
+
+    <style>
+        .role {
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+        
+        .role.creator {
+            background: #e3f2fd;
+            color: #1565c0;
+        }
+        
+        .role.user {
+            background: #f3e5f5;
+            color: #7b1fa2;
+        }
+        
+        .role.admin {
+            background: #fff3e0;
+            color: #ef6c00;
+        }
+        
+        .status.active {
+            background: #e8f5e9;
+            color: #2e7d32;
+        }
+        
+        .status.banned {
+            background: #ffebee;
+            color: #c62828;
+        }
+    </style>
+
+    <script>
+        function addUser() {
+            alert('添加用户功能开发中...');
+        }
+        
+        function viewUser(id) {
+            alert(`查看用户 ID: ${id}`);
+        }
+        
+        function editUser(id) {
+            alert(`编辑用户 ID: ${id}`);
+        }
+        
+        function banUser(id) {
+            if (confirm('确定要封禁这个用户吗？')) {
+                alert('用户已封禁');
+            }
+        }
+        
+        function unbanUser(id) {
+            if (confirm('确定要解封这个用户吗？')) {
+                alert('用户已解封');
+            }
+        }
+        
+        function exportUsers() {
+            alert('导出用户数据功能开发中...');
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>后台管理 - 学海笔记</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="admin-container">
+        <!-- 侧边栏 -->
+        <div class="admin-sidebar">
+            <div class="admin-logo">
+                <h2><i class="fas fa-book-open"></i> 学海笔记</h2>
+                <p>后台管理系统</p>
+            </div>
+            <ul class="admin-menu">
+                <li><a href="index.html" class="active"><i class="fas fa-tachometer-alt"></i> 仪表盘</a></li>
+                <li><a href="notes.html"><i class="fas fa-sticky-note"></i> 笔记管理</a></li>
+                <li><a href="users.html"><i class="fas fa-users"></i> 用户管理</a></li>
+                <li><a href="categories.html"><i class="fas fa-th-large"></i> 分类管理</a></li>
+                <li><a href="orders.html"><i class="fas fa-shopping-cart"></i> 订单管理</a></li>
+                <li><a href="reports.html"><i class="fas fa-chart-bar"></i> 数据统计</a></li>
+                <li><a href="settings.html"><i class="fas fa-cog"></i> 系统设置</a></li>
+                <li><a href="../index.html"><i class="fas fa-sign-out-alt"></i> 返回前台</a></li>
+            </ul>
+        </div>
+        
+        <!-- 主要内容 -->
+        <div class="admin-content">
+            <div class="admin-header">
+                <h1>仪表盘</h1>
+                <div class="user-info">
+                    <span>管理员，您好！</span>
+                    <button class="btn btn-outline btn-sm">退出登录</button>
+                </div>
+            </div>
+            
+            <!-- 统计卡片 -->
+            <div class="stats-cards">
+                <div class="stat-card">
+                    <span class="number">5,280</span>
+                    <span class="label">总笔记数</span>
+                </div>
+                <div class="stat-card">
+                    <span class="number">1,250</span>
+                    <span class="label">注册用户</span>
+                </div>
+                <div class="stat-card">
+                    <span class="number">12,500</span>
+                    <span class="label">总访问量</span>
+                </div>
+                <div class="stat-card">
+                    <span class="number">¥ 8,650</span>
+                    <span class="label">本月收入</span>
+                </div>
+            </div>
+            
+            <!-- 待审核笔记 -->
+            <div class="data-table">
+                <div class="table-header">
+                    <h3>待审核笔记</h3>
+                    <a href="notes.html?status=pending" class="btn btn-outline btn-sm">查看全部</a>
+                </div>
+                <div class="table-content">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>笔记标题</th>
+                                <th>提交者</th>
+                                <th>提交时间</th>
+                                <th>操作</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>计算机网络协议详解</td>
+                                <td>user123</td>
+                                <td>2023-11-10</td>
+                                <td class="action-buttons">
+                                    <button class="btn btn-success btn-sm">通过</button>
+                                    <button class="btn btn-warning btn-sm">编辑</button>
+                                    <button class="btn btn-danger btn-sm">拒绝</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>微观经济学案例分析</td>
+                                <td>user456</td>
+                                <td>2023-11-09</td>
+                                <td class="action-buttons">
+                                    <button class="btn btn-success btn-sm">通过</button>
+                                    <button class="btn btn-warning btn-sm">编辑</button>
+                                    <button class="btn btn-danger btn-sm">拒绝</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>英语六级高频词汇</td>
+                                <td>user789</td>
+                                <td>2023-11-08</td>
+                                <td class="action-buttons">
+                                    <button class="btn btn-success btn-sm">通过</button>
+                                    <button class="btn btn-warning btn-sm">编辑</button>
+                                    <button class="btn btn-danger btn-sm">拒绝</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            
+            <!-- 最新订单 -->
+            <div class="data-table" style="margin-top: 30px;">
+                <div class="table-header">
+                    <h3>最新订单</h3>
+                    <a href="orders.html" class="btn btn-outline btn-sm">查看全部</a>
+                </div>
+                <div class="table-content">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>订单号</th>
+                                <th>用户</th>
+                                <th>笔记标题</th>
+                                <th>金额</th>
+                                <th>时间</th>
+                                <th>状态</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>#ORD20231110001</td>
+                                <td>user001</td>
+                                <td>数据结构与算法精讲</td>
+                                <td>¥ 5.00</td>
+                                <td>2023-11-10 14:23</td>
+                                <td><span class="status completed">已完成</span></td>
+                            </tr>
+                            <tr>
+                                <td>#ORD20231109002</td>
+                                <td>user002</td>
+                                <td>高等数学重点总结</td>
+                                <td>¥ 8.00</td>
+                                <td>2023-11-09 10:15</td>
+                                <td><span class="status completed">已完成</span></td>
+                            </tr>
+                            <tr>
+                                <td>#ORD20231108003</td>
+                                <td>user003</td>
+                                <td>有机化学反应机理</td>
+                                <td>¥ 6.00</td>
+                                <td>2023-11-08 16:45</td>
+                                <td><span class="status pending">待支付</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // 简单的管理功能示例
+        document.querySelectorAll('.btn-success').forEach(button => {
+            button.addEventListener('click', function() {
+                const row = this.closest('tr');
+                const title = row.querySelector('td:first-child').textContent;
+                if(confirm(`确定要通过笔记"${title}"吗？`)) {
+                    row.style.opacity = '0.5';
+                    setTimeout(() => {
+                        row.remove();
+                        alert('笔记已通过审核');
+                    }, 500);
+                }
+            });
+        });
+        
+        document.querySelectorAll('.btn-danger').forEach(button => {
+            button.addEventListener('click', function() {
+                const row = this.closest('tr');
+                const title = row.querySelector('td:first-child').textContent;
+                if(confirm(`确定要拒绝笔记"${title}"吗？`)) {
+                    row.style.opacity = '0.5';
+                    setTimeout(() => {
+                        row.remove();
+                        alert('笔记已拒绝');
+                    }, 500);
+                }
+            });
+        });
+    </script>
+</body>
+</html>

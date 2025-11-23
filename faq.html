@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>常见问题 - 学海笔记</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- 导航栏 -->
+    <header>
+        <div class="container">
+            <nav>
+                <a href="index.html" class="logo">
+                    <i class="fas fa-book-open"></i>
+                    学海笔记
+                </a>
+                <ul class="nav-links">
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="notes.html">笔记库</a></li>
+                    <li><a href="categories.html">学科分类</a></li>
+                    <li><a href="contribute.html">我要投稿</a></li>
+                    <li><a href="about.html">关于我们</a></li>
+                </ul>
+                <div class="auth-buttons">
+                    <button class="btn btn-outline" onclick="location.href='login.html'">登录</button>
+                    <button class="btn btn-primary" onclick="location.href='register.html'">注册</button>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- 常见问题页面 -->
+    <section class="faq-page">
+        <div class="container">
+            <div class="page-header">
+                <h1>常见问题</h1>
+                <p>快速找到您关心的问题答案</p>
+            </div>
+            
+            <div class="faq-search">
+                <input type="text" placeholder="搜索问题..." id="faqSearch">
+                <button onclick="searchFAQ()"><i class="fas fa-search"></i></button>
+            </div>
+            
+            <div class="faq-categories">
+                <button class="faq-category-btn active" data-category="all">全部问题</button>
+                <button class="faq-category-btn" data-category="account">账户相关</button>
+                <button class="faq-category-btn" data-category="notes">笔记相关</button>
+                <button class="faq-category-btn" data-category="payment">支付问题</button>
+                <button class="faq-category-btn" data-category="technical">技术问题</button>
+            </div>
+            
+            <div class="faq-content">
+                <!-- 账户相关 -->
+                <div class="faq-section" data-category="account">
+                    <h2>账户相关</h2>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3>如何注册学海笔记账户？</h3>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>注册学海笔记账户非常简单：</p>
+                            <ol>
+                                <li>点击页面右上角的"注册"按钮</li>
+                                <li>填写用户名、邮箱、密码等基本信息</li>
+                                <li>选择您所在的学校和专业</li>
+                                <li>阅读并同意用户协议</li>
+                                <li>完成邮箱验证即可开始使用</li>
+                            </ol>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3>忘记密码怎么办？</h3>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>如果您忘记了密码：</p>
+                            <ol>
+                                <li>在登录页面点击"忘记密码"</li>
+                                <li>输入您注册时使用的邮箱地址</li>
+                                <li>检查邮箱中的密码重置链接</li>
+                                <li>点击链接设置新密码</li>
+                            </ol>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3>可以修改用户名吗？</h3>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>是的，您可以修改用户名：</p>
+                            <ol>
+                                <li>登录后进入"个人中心"</li>
+                                <li>点击"账户设置"</li>
+                                <li>找到"用户名"选项进行修改</li>
+                                <li>注意：用户名每30天只能修改一次</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 笔记相关 -->
+                <div class="faq-section" data-category="notes">
+                    <h2>笔记相关</h2>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3>如何上传笔记？</h3>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>上传笔记的步骤：</p>
+                            <ol>
+                                <li>登录后点击"我要投稿"</li>
+                                <li>填写笔记标题、描述、分类等信息</li>
+                                <li>设置价格（免费或付费）</li>
+                                <li>上传笔记文件（支持PDF、Word等格式）</li>
+                                <li>提交审核，1-3个工作日内完成审核</li>
+                            </ol>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3>笔记审核标准是什么？</h3>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>我们审核笔记主要考虑以下因素：</p>
+                            <ul>
+                                <li>内容完整性和准确性</li>
+                                <li>排版清晰易读</li>
+                                <li>原创性或获得授权</li>
+                                <li>符合学科分类</li>
+                                <li>无侵权和违规内容</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3>笔记上传后可以修改吗？</h3>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>是的，您可以修改已上传的笔记：</p>
+                            <ul>
+                                <li>在"我的投稿"中找到需要修改的笔记</li>
+                                <li>点击"编辑"按钮进行修改</li>
+                                <li>修改后需要重新提交审核</li>
+                                <li>审核期间笔记将暂时下架</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 支付问题 -->
+                <div class="faq-section" data-category="payment">
+                    <h2>支付问题</h2>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3>支持哪些支付方式？</h3>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>目前我们支持以下支付方式：</p>
+                            <ul>
+                                <li>微信支付</li>
+                                <li>支付宝</li>
+                                <li>银行卡支付</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3>购买后不满意可以退款吗？</h3>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>根据我们的退款政策：</p>
+                            <ul>
+                                <li>购买后24小时内可申请无条件退款</li>
+                                <li>如果笔记内容与描述严重不符可申请退款</li>
+                                <li>因技术问题导致无法下载可申请退款</li>
+                                <li>已经下载并查看内容的笔记不支持退款</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3>如何查看购买记录？</h3>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>查看购买记录的方法：</p>
+                            <ol>
+                                <li>登录后进入"个人中心"</li>
+                                <li>点击"我的购买"</li>
+                                <li>这里会显示您所有的购买记录</li>
+                                <li>可以按时间筛选和搜索特定笔记</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 技术问题 -->
+                <div class="faq-section" data-category="technical">
+                    <h2>技术问题</h2>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3>笔记下载失败怎么办？</h3>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>如果笔记下载失败，请尝试以下方法：</p>
+                            <ul>
+                                <li>检查网络连接是否正常</li>
+                                <li>尝试刷新页面重新下载</li>
+                                <li>更换浏览器尝试</li>
+                                <li>清除浏览器缓存</li>
+                                <li>如问题持续，请联系客服</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3>网站加载缓慢怎么办？</h3>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>如果网站加载缓慢：</p>
+                            <ul>
+                                <li>检查您的网络连接速度</li>
+                                <li>尝试清除浏览器缓存</li>
+                                <li>关闭不必要的浏览器标签页</li>
+                                <li>尝试使用其他浏览器</li>
+                                <li>如问题持续，可能是服务器维护，请稍后再试</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3>如何联系技术支持？</h3>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>如果您遇到技术问题，可以通过以下方式联系：</p>
+                            <ul>
+                                <li>发送邮件至：support@xuehaibiji.com</li>
+                                <li>拨打客服电话：400-123-4567</li>
+                                <li>通过网站右下角的在线客服</li>
+                                <li>我们会在24小时内回复您的问题</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 更多帮助 -->
+            <div class="more-help">
+                <h2>还需要更多帮助？</h2>
+                <p>如果以上问题没有解决您的疑问，欢迎联系我们</p>
+                <div class="help-actions">
+                    <a href="help.html" class="btn btn-primary">查看详细帮助文档</a>
+                    <a href="contact.html" class="btn btn-outline">联系客服</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>学海笔记</h3>
+                    <p>专为大学生打造的知识分享平台，致力于促进学术交流与知识传播。</p>
+                </div>
+                <div class="footer-column">
+                    <h3>快速链接</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html">首页</a></li>
+                        <li><a href="notes.html">笔记库</a></li>
+                        <li><a href="categories.html">学科分类</a></li>
+                        <li><a href="about.html">关于我们</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>帮助中心</h3>
+                    <ul class="footer-links">
+                        <li><a href="contribute.html">如何投稿</a></li>
+                        <li><a href="help.html">购买说明</a></li>
+                        <li><a href="faq.html">常见问题</a></li>
+                        <li><a href="terms.html">用户协议</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>联系我们</h3>
+                    <ul class="footer-links">
+                        <li><a href="mailto:contact@xuehaibiji.com"><i class="fas fa-envelope"></i> contact@xuehaibiji.com</a></li>
+                        <li><a href="tel:400-123-4567"><i class="fas fa-phone"></i> 400-123-4567</a></li>
+                        <li><a href="#"><i class="fas fa-map-marker-alt"></i> 北京市海淀区学院路</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 学海笔记 版权所有 | 设计灵感来源于现代教育平台</p>
+            </div>
+        </div>
+    </footer>
+
+    <style>
+        .faq-page {
+            padding: 60px 0;
+            background: #f5f7fb;
+        }
+        
+        .faq-search {
+            display: flex;
+            max-width: 500px;
+            margin: 0 auto 40px;
+        }
+        
+        .faq-search input {
+            flex: 1;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px 0 0 5px;
+            font-size: 1rem;
+        }
+        
+        .faq-search button {
+            padding: 15px 20px;
+            background: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 0 5px 5px 0;
+            cursor: pointer;
+        }
+        
+        .faq-categories {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+        
+        .faq-category-btn {
+            padding: 10px 20px;
+            border: 1px solid #ddd;
+            background: white;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .faq-category-btn.active,
+        .faq-category-btn:hover {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+        }
+        
+        .faq-section {
+            margin-bottom: 40px;
+        }
+        
+        .faq-section h2 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: var(--primary);
+            padding-bottom: 10px;
+            border-bottom: 2px solid #eee;
+        }
+        
+        .faq-item {
+            background: white;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+        
+        .faq-question {
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+        }
+        
+        .faq-question h3 {
+            margin: 0;
+            font-size: 1.1rem;
+            color: #333;
+        }
+        
+        .faq-question i {
+            transition: transform 0.3s;
+        }
+        
+        .faq-item.active .faq-question i {
+            transform: rotate(180deg);
+        }
+        
+        .faq-answer {
+            padding: 0 20px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s, padding 0.3s;
+        }
+        
+        .faq-item.active .faq-answer {
+            padding: 0 20px 20px;
+            max-height: 500px;
+        }
+        
+        .faq-answer p, .faq-answer ol, .faq-answer ul {
+            margin-bottom: 15px;
+        }
+        
+        .more-help {
+            text-align: center;
+            padding: 40px;
+            background: white;
+            border-radius: 10px;
+            margin-top: 40px;
+        }
+        
+        .more-help h2 {
+            margin-bottom: 10px;
+            color: var(--primary);
+        }
+        
+        .help-actions {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            margin-top: 20px;
+        }
+        
+        @media (max-width: 768px) {
+            .help-actions {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+
+    <script>
+        // FAQ展开收起功能
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', function() {
+                const item = this.parentElement;
+                item.classList.toggle('active');
+            });
+        });
+        
+        // 分类筛选
+        document.querySelectorAll('.faq-category-btn').forEach(button => {
+            button.addEventListener('click', function() {
+                // 移除所有激活状态
+                document.querySelectorAll('.faq-category-btn').forEach(btn => {
+                    btn.classList.remove('active');
+                });
+                
+                // 添加当前激活状态
+                this.classList.add('active');
+                
+                const category = this.getAttribute('data-category');
+                filterFAQ(category);
+            });
+        });
+        
+        function filterFAQ(category) {
+            const sections = document.querySelectorAll('.faq-section');
+            
+            sections.forEach(section => {
+                if (category === 'all' || section.getAttribute('data-category') === category) {
+                    section.style.display = 'block';
+                } else {
+                    section.style.display = 'none';
+                }
+            });
+        }
+        
+        function searchFAQ() {
+            const query = document.getElementById('faqSearch').value.toLowerCase();
+            const questions = document.querySelectorAll('.faq-question h3');
+            
+            questions.forEach(question => {
+                const item = question.closest('.faq-item');
+                const section = item.closest('.faq-section');
+                
+                if (question.textContent.toLowerCase().includes(query)) {
+                    item.style.display = 'block';
+                    section.style.display = 'block';
+                    item.classList.add('active'); // 展开匹配的问题
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        }
+        
+        // 默认显示所有问题
+        filterFAQ('all');
+    </script>
+</body>
+</html>

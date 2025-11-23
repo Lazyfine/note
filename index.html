@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>学海笔记 - 大学生知识分享平台</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- 导航栏 -->
+    <header>
+        <div class="container">
+            <nav>
+                <a href="index.html" class="logo">
+                    <i class="fas fa-book-open"></i>
+                Lazyfine
+            </a>
+                <ul class="nav-links">
+                  <li><a href="index.html" class="active">首页</a></li>
+                    <li><a href="notes.html">笔记库</a></li>
+                    <li><a href="categories.html">学科分类</a></li>
+                    <li><a href="contribute.html">我要投稿</a></li>
+                    <li><a href="about.html">关于我们</a></li>
+                </ul>
+                <div class="auth-buttons">
+                    <button class="btn btn-outline" onclick="location.href='login.html'">登录</button>
+                    <button class="btn btn-primary" onclick="location.href='register.html'">注册</button>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- 英雄区域 -->
+    <section class="hero">
+        <div class="container">
+            <h1>分享知识，共同成长</h1>
+            <p>专为大学生打造的笔记分享平台，汇聚各学科优质学习资源，让知识流动起来</p>
+            <div class="search-box">
+                <input type="text" placeholder="搜索课程、专业或关键词..." id="searchInput">
+                <button onclick="searchNotes()"><i class="fas fa-search"></i> 搜索</button>
+            </div>
+            <div class="stats">
+                <div class="stat-item">
+                    <span class="stat-number">5,280</span>
+                    <span class="stat-label">篇优质笔记</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">1,250</span>
+                    <span class="stat-label">位创作者</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">12,500</span>
+                    <span class="stat-label">位学习者</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 学科分类 -->
+    <section class="categories">
+        <div class="container">
+            <h2 class="section-title">热门学科分类</h2>
+            <div class="category-grid">
+                <div class="category-card" onclick="location.href='notes.html?category=computer'">
+                    <div class="category-icon">
+                        <i class="fas fa-laptop-code"></i>
+                    </div>
+                    <h3>计算机科学</h3>
+                    <p>1,284篇笔记</p>
+                </div>
+                <div class="category-card" onclick="location.href='notes.html?category=math'">
+                    <div class="category-icon">
+                        <i class="fas fa-calculator"></i>
+                    </div>
+                    <h3>数学</h3>
+                    <p>956篇笔记</p>
+                </div>
+                <div class="category-card" onclick="location.href='notes.html?category=chemistry'">
+                    <div class="category-icon">
+                        <i class="fas fa-flask"></i>
+                    </div>
+                    <h3>化学</h3>
+                    <p>742篇笔记</p>
+                </div>
+                <div class="category-card" onclick="location.href='notes.html?category=economics'">
+                    <div class="category-icon">
+                        <i class="fas fa-dollar-sign"></i>
+                    </div>
+                    <h3>经济学</h3>
+                    <p>689篇笔记</p>
+                </div>
+                <div class="category-card" onclick="location.href='notes.html?category=literature'">
+                    <div class="category-icon">
+                        <i class="fas fa-book"></i>
+                    </div>
+                    <h3>文学</h3>
+                    <p>634篇笔记</p>
+                </div>
+                <div class="category-card" onclick="location.href='notes.html?category=law'">
+                    <div class="category-icon">
+                        <i class="fas fa-balance-scale"></i>
+                    </div>
+                    <h3>法学</h3>
+                    <p>587篇笔记</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 热门笔记 -->
+    <section class="featured-notes">
+        <div class="container">
+            <h2 class="section-title">热门笔记推荐</h2>
+            <div class="notes-grid">
+                <div class="note-card" onclick="location.href='note-detail.html?id=1'">
+                    <div class="note-image" style="background-image: url('https://source.unsplash.com/random/600x400/?programming');"></div>
+                    <div class="note-content">
+                        <h3 class="note-title">数据结构与算法精讲</h3>
+                        <div class="note-meta">
+                            <span><i class="far fa-user"></i> 张学长</span>
+                            <span><i class="far fa-calendar"></i> 2023-10-15</span>
+                        </div>
+                        <p class="note-description">涵盖常见数据结构和算法，配有详细图解和代码示例，适合复习和备考。</p>
+                        <div class="note-footer">
+                            <span class="note-price">免费</span>
+                            <span class="rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                                4.5
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="note-card" onclick="location.href='note-detail.html?id=2'">
+                    <div class="note-image" style="background-image: url('https://source.unsplash.com/random/600x400/?math');"></div>
+                    <div class="note-content">
+                        <h3 class="note-title">高等数学重点总结</h3>
+                        <div class="note-meta">
+                            <span><i class="far fa-user"></i> 李学姐</span>
+                            <span><i class="far fa-calendar"></i> 2023-11-02</span>
+                        </div>
+                        <p class="note-description">期末复习必备，包含重要公式、定理和典型例题解析。</p>
+                        <div class="note-footer">
+                            <span class="note-price">¥ 5.00</span>
+                            <span class="rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="far fa-star"></i>
+                                4.0
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="note-card" onclick="location.href='note-detail.html?id=3'">
+                    <div class="note-image" style="background-image: url('https://source.unsplash.com/random/600x400/?chemistry');"></div>
+                    <div class="note-content">
+                        <h3 class="note-title">有机化学反应机理</h3>
+                        <div class="note-meta">
+                            <span><i class="far fa-user"></i> 王学长</span>
+                            <span><i class="far fa-calendar"></i> 2023-09-28</span>
+                        </div>
+                        <p class="note-description">详细解析有机化学常见反应机理，配有清晰的反应流程图。</p>
+                        <div class="note-footer">
+                            <span class="note-price">¥ 8.00</span>
+                            <span class="rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                5.0
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="view-all">
+                <a href="notes.html" class="btn btn-outline">查看全部笔记</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 投稿引导 -->
+    <section class="contribution">
+        <div class="container">
+            <h2>分享你的笔记，帮助他人，获得收益</h2>
+            <p>将你整理的优质笔记上传到这，既可以帮助其他同学，又可以通过优质内容获得经济回报</p>
+            <a href="contribute.html" class="btn-light">立即投稿</a>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>学海笔记</h3>
+                    <p>专为大学生打造的知识分享平台，致力于促进学术交流与知识传播。</p>
+                </div>
+                <div class="footer-column">
+                    <h3>快速链接</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html">首页</a></li>
+                        <li><a href="notes.html">笔记库</a></li>
+                        <li><a href="categories.html">学科分类</a></li>
+                        <li><a href="about.html">关于我们</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>帮助中心</h3>
+                    <ul class="footer-links">
+                        <li><a href="contribute.html">如何投稿</a></li>
+                        <li><a href="help.html">购买说明</a></li>
+                        <li><a href="faq.html">常见问题</a></li>
+                        <li><a href="terms.html">用户协议</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>联系我们</h3>
+                    <ul class="footer-links">
+                        <li><a href="mailto:contact@xuehaibiji.com"><i class="fas fa-envelope"></i> lazyfine@qq.com</a></li>
+                        
+                        <li><a href="#"><i class="fas fa-map-marker-alt"></i> 北京市密云区</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 Lazyfine 版权所有  </p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // 搜索功能
+        function searchNotes() {
+            const query = document.getElementById('searchInput').value;
+            if(query.trim() !== '') {
+                window.location.href = 'notes.html?search=' + encodeURIComponent(query);
+            }
+        }
+        
+        // 回车键搜索
+        document.getElementById('searchInput').addEventListener('keypress', function(e) {
+            if(e.key === 'Enter') {
+                searchNotes();
+            }
+        });
+
+        // 导航栏滚动效果
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            if(window.scrollY > 100) {
+                header.style.boxShadow = '0 5px 20px rgba(0, 0, 0, 0.1)';
+            } else {
+                header.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.1)';
+            }
+        });
+    </script>
+</body>
+</html>

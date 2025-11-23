@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>我要投稿 - 学海笔记</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- 导航栏 -->
+    <header>
+        <div class="container">
+            <nav>
+                <a href="index.html" class="logo">
+                    <i class="fas fa-book-open"></i>
+                    Lazyfine
+                </a>
+                <ul class="nav-links">
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="notes.html">笔记库</a></li>
+                    <li><a href="categories.html">学科分类</a></li>
+                    <li><a href="contribute.html" class="active">我要投稿</a></li>
+                    <li><a href="about.html">关于我们</a></li>
+                </ul>
+                <div class="auth-buttons">
+                    <button class="btn btn-outline" onclick="location.href='login.html'">登录</button>
+                    <button class="btn btn-primary" onclick="location.href='register.html'">注册</button>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- 投稿表单 -->
+    <section class="contribution-form">
+        <div class="container">
+            <div class="page-header">
+                <h1>分享你的知识</h1>
+                <p>上传优质笔记，帮助他人学习，同时获得收益回报</p>
+            </div>
+            
+            <div class="form-container">
+                <form id="contributeForm">
+                    <div class="form-group">
+                        <label for="noteTitle">笔记标题 *</label>
+                        <input type="text" id="noteTitle" name="noteTitle" placeholder="请输入笔记标题" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="noteCategory">学科分类 *</label>
+                        <select id="noteCategory" name="noteCategory" required>
+                            <option value="">请选择学科分类</option>
+                            <option value="computer">计算机科学</option>
+                            <option value="math">数学</option>
+                            <option value="chemistry">化学</option>
+                            <option value="economics">经济学</option>
+                            <option value="literature">文学</option>
+                            <option value="law">法学</option>
+                            <option value="physics">物理学</option>
+                            <option value="biology">生物学</option>
+                            <option value="history">历史学</option>
+                            <option value="philosophy">哲学</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="courseName">相关课程</label>
+                        <input type="text" id="courseName" name="courseName" placeholder="例如：数据结构与算法">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="noteDescription">笔记描述 *</label>
+                        <textarea id="noteDescription" name="noteDescription" placeholder="请详细描述笔记内容、特点和适用人群" rows="4" required></textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="notePrice">定价策略</label>
+                        <div class="price-options">
+                            <label class="radio-label">
+                                <input type="radio" name="priceType" value="free" checked> 免费分享
+                            </label>
+                            <label class="radio-label">
+                                <input type="radio" name="priceType" value="paid"> 付费下载
+                                <input type="number" id="notePrice" name="notePrice" placeholder="价格(元)" min="1" max="100" disabled>
+                            </label>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="noteFile">上传文件 *</label>
+                        <div class="file-upload">
+                            <input type="file" id="noteFile" name="noteFile" accept=".pdf,.doc,.docx,.jpg,.png" required>
+                            <div class="upload-info">
+                                <p>支持格式：PDF, Word, JPG, PNG</p>
+                                <p>最大文件大小：50MB</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="noteTags">标签</label>
+                        <input type="text" id="noteTags" name="noteTags" placeholder="添加标签，用逗号分隔（例如：期末复习,重点总结,例题解析）">
+                    </div>
+                    
+                    <div class="form-group checkbox-group">
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="agreeTerms" name="agreeTerms" required>
+                            我确认此笔记为原创内容或已获得授权，并同意<a href="terms.html">用户协议</a>
+                        </label>
+                    </div>
+                    
+                    <div class="form-actions">
+                        <button type="submit" class="btn btn-primary">提交审核</button>
+                        <button type="button" class="btn btn-outline" onclick="previewNote()">预览</button>
+                    </div>
+                </form>
+            </div>
+            
+            <!-- 投稿指南 -->
+            <div class="guidance-section">
+                <h2>投稿指南</h2>
+                <div class="guidance-grid">
+                    <div class="guidance-item">
+                        <div class="guidance-icon">
+                            <i class="fas fa-edit"></i>
+                        </div>
+                        <h3>内容要求</h3>
+                        <p>笔记内容应清晰、准确、完整，排版整洁，便于阅读</p>
+                    </div>
+                    <div class="guidance-item">
+                        <div class="guidance-icon">
+                            <i class="fas fa-check-circle"></i>
+                        </div>
+                        <h3>原创性</h3>
+                        <p>确保笔记为原创或已获得授权，禁止抄袭他人作品</p>
+                    </div>
+                    <div class="guidance-item">
+                        <div class="guidance-icon">
+                            <i class="fas fa-money-bill-wave"></i>
+                        </div>
+                        <h3>收益分成</h3>
+                        <p>付费笔记收益按70%比例分配给创作者</p>
+                    </div>
+                    <div class="guidance-item">
+                        <div class="guidance-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <h3>审核时间</h3>
+                        <p>投稿后1-3个工作日内完成审核，审核通过后立即上架</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>学海笔记</h3>
+                    <p>专为大学生打造的知识分享平台，致力于促进学术交流与知识传播。</p>
+                </div>
+                <div class="footer-column">
+                    <h3>快速链接</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html">首页</a></li>
+                        <li><a href="notes.html">笔记库</a></li>
+                        <li><a href="categories.html">学科分类</a></li>
+                        <li><a href="about.html">关于我们</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>帮助中心</h3>
+                    <ul class="footer-links">
+                        <li><a href="contribute.html">如何投稿</a></li>
+                        <li><a href="help.html">购买说明</a></li>
+                        <li><a href="faq.html">常见问题</a></li>
+                        <li><a href="terms.html">用户协议</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>联系我们</h3>
+                    <ul class="footer-links">
+                        <li><a href="mailto:contact@xuehaibiji.com"><i class="fas fa-envelope"></i> Lazyfine@qq.com</a></li>
+                       
+                        <li><a href="#"><i class="fas fa-map-marker-alt"></i> 北京市</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 Lazyfine 版权所有</p>
+            </div>
+        </div>
+    </footer>
+
+    <style>
+        .contribution-form {
+            padding: 40px 0;
+            background: #f5f7fb;
+        }
+        
+        .form-container {
+            background: white;
+            padding: 30px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            margin-bottom: 40px;
+        }
+        
+        .form-group {
+            margin-bottom: 25px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: var(--dark);
+        }
+        
+        .form-group input, .form-group select, .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: var(--border-radius);
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+        
+        .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+        }
+        
+        .price-options {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
+        
+        .radio-label {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            cursor: pointer;
+        }
+        
+        .radio-label input[type="number"] {
+            width: 100px;
+            margin-left: 10px;
+        }
+        
+        .file-upload {
+            border: 2px dashed #ddd;
+            padding: 20px;
+            border-radius: var(--border-radius);
+            text-align: center;
+        }
+        
+        .upload-info {
+            margin-top: 10px;
+            font-size: 0.9rem;
+            color: #666;
+        }
+        
+        .checkbox-label {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            cursor: pointer;
+        }
+        
+        .form-actions {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            margin-top: 30px;
+        }
+        
+        .guidance-section {
+            background: white;
+            padding: 30px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+        }
+        
+        .guidance-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        
+        .guidance-item {
+            text-align: center;
+            padding: 20px;
+        }
+        
+        .guidance-icon {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+    </style>
+
+    <script>
+        // 价格选项切换
+        document.querySelectorAll('input[name="priceType"]').forEach(radio => {
+            radio.addEventListener('change', function() {
+                const priceInput = document.getElementById('notePrice');
+                if (this.value === 'paid') {
+                    priceInput.disabled = false;
+                    priceInput.required = true;
+                } else {
+                    priceInput.disabled = true;
+                    priceInput.required = false;
+                    priceInput.value = '';
+                }
+            });
+        });
+        
+        // 表单提交
+        document.getElementById('contributeForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // 表单验证
+            const formData = new FormData(this);
+            const title = formData.get('noteTitle');
+            const category = formData.get('noteCategory');
+            
+            if (!title || !category) {
+                alert('请填写必填字段');
+                return;
+            }
+            
+            // 模拟提交成功
+            alert('投稿提交成功！我们将在1-3个工作日内完成审核。');
+            this.reset();
+        });
+        
+        function previewNote() {
+            alert('预览功能开发中...');
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>笔记详情 - 学海笔记</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- 导航栏 -->
+    <header>
+        <div class="container">
+            <nav>
+                <a href="index.html" class="logo">
+                    <i class="fas fa-book-open"></i>
+                    学海笔记
+                </a>
+                <ul class="nav-links">
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="notes.html">笔记库</a></li>
+                    <li><a href="categories.html">学科分类</a></li>
+                    <li><a href="contribute.html">我要投稿</a></li>
+                    <li><a href="about.html">关于我们</a></li>
+                </ul>
+                <div class="auth-buttons">
+                    <button class="btn btn-outline" onclick="location.href='login.html'">登录</button>
+                    <button class="btn btn-primary" onclick="location.href='register.html'">注册</button>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- 笔记详情 -->
+    <section class="note-detail">
+        <div class="container">
+            <div class="note-header">
+                <h1 class="note-title-large">数据结构与算法精讲</h1>
+                <div class="note-meta-large">
+                    <span><i class="far fa-user"></i> 张学长</span>
+                    <span><i class="far fa-calendar"></i> 2023-10-15</span>
+                    <span><i class="far fa-eye"></i> 1,248次浏览</span>
+                    <span><i class="far fa-download"></i> 856次下载</span>
+                    <span class="rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                        4.5 (128评价)
+                    </span>
+                </div>
+                <p class="note-summary">本笔记详细讲解了数据结构与算法的核心概念，包含数组、链表、栈、队列、树、图等数据结构，以及排序、查找等常用算法。适合计算机专业学生复习备考。</p>
+                <div class="note-actions">
+                    <button class="btn btn-primary"><i class="fas fa-download"></i> 下载笔记</button>
+                    <button class="btn btn-outline"><i class="far fa-heart"></i> 收藏</button>
+                    <button class="btn btn-outline"><i class="fas fa-share"></i> 分享</button>
+                </div>
+            </div>
+
+            <div class="note-content-area">
+                <h2>笔记内容预览</h2>
+                <div class="preview-content">
+                    <h3>第一章：数据结构基础</h3>
+                    <p>数据结构是计算机存储、组织数据的方式。常见的数据结构包括：</p>
+                    <ul>
+                        <li>数组：连续的内存空间</li>
+                        <li>链表：通过指针连接的节点</li>
+                        <li>栈：后进先出(LIFO)</li>
+                        <li>队列：先进先出(FIFO)</li>
+                    </ul>
+                    
+                    <h3>第二章：排序算法</h3>
+                    <p>常见的排序算法及其时间复杂度：</p>
+                    <table>
+                        <tr>
+                            <th>算法</th>
+                            <th>最好情况</th>
+                            <th>平均情况</th>
+                            <th>最坏情况</th>
+                        </tr>
+                        <tr>
+                            <td>冒泡排序</td>
+                            <td>O(n)</td>
+                            <td>O(n²)</td>
+                            <td>O(n²)</td>
+                        </tr>
+                        <tr>
+                            <td>快速排序</td>
+                            <td>O(n log n)</td>
+                            <td>O(n log n)</td>
+                            <td>O(n²)</td>
+                        </tr>
+                    </table>
+                    
+                    <div class="preview-note">
+                        <p><i class="fas fa-lock"></i> 完整内容需要下载后查看</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 相关笔记 -->
+            <div class="related-notes">
+                <h2>相关推荐</h2>
+                <div class="notes-grid">
+                    <div class="note-card" onclick="location.href='note-detail.html?id=4'">
+                        <div class="note-image" style="background-image: url('https://source.unsplash.com/random/600x400/?database');"></div>
+                        <div class="note-content">
+                            <h3 class="note-title">数据库系统原理</h3>
+                            <div class="note-meta">
+                                <span><i class="far fa-user"></i> 刘学长</span>
+                                <span><i class="far fa-calendar"></i> 2023-09-20</span>
+                            </div>
+                            <p class="note-description">数据库系统核心概念与SQL语言详解。</p>
+                            <div class="note-footer">
+                                <span class="note-price">¥ 6.00</span>
+                                <span class="rating">4.3</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="note-card" onclick="location.href='note-detail.html?id=5'">
+                        <div class="note-image" style="background-image: url('https://source.unsplash.com/random/600x400/?network');"></div>
+                        <div class="note-content">
+                            <h3 class="note-title">计算机网络基础</h3>
+                            <div class="note-meta">
+                                <span><i class="far fa-user"></i> 王学姐</span>
+                                <span><i class="far fa-calendar"></i> 2023-10-05</span>
+                            </div>
+                            <p class="note-description">TCP/IP协议栈与网络编程实践。</p>
+                            <div class="note-footer">
+                                <span class="note-price">免费</span>
+                                <span class="rating">4.7</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>学海笔记</h3>
+                    <p>专为大学生打造的知识分享平台，致力于促进学术交流与知识传播。</p>
+                </div>
+                <div class="footer-column">
+                    <h3>快速链接</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html">首页</a></li>
+                        <li><a href="notes.html">笔记库</a></li>
+                        <li><a href="categories.html">学科分类</a></li>
+                        <li><a href="about.html">关于我们</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>帮助中心</h3>
+                    <ul class="footer-links">
+                        <li><a href="contribute.html">如何投稿</a></li>
+                        <li><a href="help.html">购买说明</a></li>
+                        <li><a href="faq.html">常见问题</a></li>
+                        <li><a href="terms.html">用户协议</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>联系我们</h3>
+                    <ul class="footer-links">
+                        <li><a href="mailto:contact@xuehaibiji.com"><i class="fas fa-envelope"></i> contact@xuehaibiji.com</a></li>
+                        <li><a href="tel:400-123-4567"><i class="fas fa-phone"></i> 400-123-4567</a></li>
+                        <li><a href="#"><i class="fas fa-map-marker-alt"></i> 北京市海淀区学院路</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 学海笔记 版权所有 | 设计灵感来源于现代教育平台</p>
+            </div>
+        </div>
+    </footer>
+
+    <style>
+        .note-summary {
+            font-size: 1.1rem;
+            color: #666;
+            margin: 15px 0;
+            line-height: 1.6;
+        }
+        
+        .preview-content {
+            line-height: 1.8;
+        }
+        
+        .preview-content h3 {
+            color: var(--primary);
+            margin: 20px 0 10px;
+        }
+        
+        .preview-content table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+        }
+        
+        .preview-content th, .preview-content td {
+            padding: 10px;
+            border: 1px solid #ddd;
+            text-align: left;
+        }
+        
+        .preview-content th {
+            background: #f5f7fb;
+        }
+        
+        .preview-note {
+            background: #fff3cd;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 20px 0;
+            text-align: center;
+            border-left: 4px solid #ffc107;
+        }
+        
+        .related-notes {
+            margin-top: 50px;
+        }
+        
+        .related-notes h2 {
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+        }
+    </style>
+
+    <script>
+        // 获取URL参数显示对应笔记
+        document.addEventListener('DOMContentLoaded', function() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const noteId = urlParams.get('id');
+            
+            // 根据noteId可以加载不同的笔记内容
+            if (noteId) {
+                console.log('加载笔记ID:', noteId);
+                // 实际应用中这里会通过AJAX加载笔记数据
+            }
+        });
+    </script>
+</body>
+</html>
